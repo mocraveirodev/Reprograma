@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+
+	<title>To Do List by {reprograma}</title>
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body>
+
+	<header>
+		<h1>To Do List by <span class="cor">{re</span>programa<span class="cor">}</span></h1>
+	</header>
+
+  <div align="center">
+    <form id="criatarefa">
+      <input type="text" id="desctarefa" value="Digite aqui a nova tarefa!" onfocus="this.value=''">
+      <input type="button" value="+ Adicionar Tarefa" onclick="novaLinha();">
+    </form>
+  </div>
+
+  <div id="tabela" align="center">
+  	<table id="tabletarefa" align="center">
+  		<thead>
+  			<tr>
+  				<th align="center" width="690"> Lista de Tarefas</th>
+  				<th align="center" width="100">Concluído</th>
+  			</tr>
+  		</thead>
+  		<tbody id="linhatarefa">
+        <!-- <tr>
+        <td align='left' id='tarefa'></td>
+        <td align='center' class='concluido'><input type="checkbox" name="linha1" id="concluido"></td>
+        </tr> -->
+  		</tbody>
+  	</table>
+  </div>
+
+  <script type="text/javascript">
+
+    var conta=0;
+
+    function novaLinha(){ 
+      conta++;
+      var tab = document.getElementById("linhatarefa");
+      var linha = tab.insertRow(0);
+      var tarefa = linha.insertCell(0);
+      var concluido = linha.insertCell(1);
+      concluido.setAttribute("align","center");
+      // concluido.innerHTML = "<input type='button' id='concluido' value='Concluído' onclick='javascript:trocacor('tarefa"+conta+"')></input>";
+      tarefa.innerText = document.getElementById('desctarefa').value;
+      tarefa.setAttribute("id",conta)
+      var chk = document.createElement('input');
+      chk.setAttribute("type","checkbox");
+      chk.setAttribute("name","concluido");
+      chk.setAttribute("id","checkbox"+conta);
+      chk.setAttribute("onclick","javascript:trocaCor(this);");
+      linha.cells[1].appendChild(chk);
+      document.getElementById("desctarefa").value = "Digite aqui a nova tarefa!";
+
+      // chk.setAttribute("onclick",function(){
+            //  var chk = this.getElementsByTagName("input");
+            //  chk.checked = !chk.checked;
+            //  if(chk.checked){
+            //    this.style.backgroundColor = "#b3efb1";
+
+            //  }
+            // });
+            // chk.onclick = trocaCor();
+    }
+
+    function trocaCor(check){
+      if (check.checked==true){
+      var str_id = check.id;
+      var tam_id = str_id.length;
+      var sel_id = check.id.substring(8, tam_id);
+      var lin = document.getElementById(sel_id);
+      lin.setAttribute("bgcolor","#b3efb1");
+      lin.style.fontStyle = "italic";
+
+      // var x=document.getElementsByTagName("input");
+        // var y=document.getElementsByTagName("td");
+        // for (i=0;i<=x.length-1;i++) {
+        //  if (x[i].type=="checkbox" && y[i].id==i && x[i].checked==true){
+        //    y[i].setAttribute("bgcolor","#b3efb1");
+
+        //  }
+        // }
+        // var colunas = tabela.getElementsByTagName('td');
+        // var troca = document.getElementsByName("concluido");
+        // var tam = troca.length;
+        // for (var i = 0; i <= linhas.length; i++) {
+
+        //   // var obj_check = ;
+        //   if (document.getElementsByTagName("input").checked==true) {
+        //     var lin = document.getElementById(i);
+        //     lin.setAttribute("bgcolor","#b3efb1");
+        //   }
+        // }
+      }
+    }
+
+    // function novaLinha(){
+      // conta++;
+        // var tab = document.body.tbody;
+      //     var linha = document.createElement('tr');
+      //     var col1 =  document.createElement('td');
+      //     // col1.setAttribute("id", conta);
+      //     // col1.setAttribute("align", "center")
+      //     // var tarefa = document.getElementById("desctarefa").value;
+      //     var botao = document.createTextNode("Um título qualquer");
+      //     col1.appendChild(botao);
+      //     var col2 = document.createElement('td');
+      //     // col2.setAttribute("align", "center")
+      //     // var botao = "<input type='button' id='concluido' value='Concluído' onclick='javascript:trocacor('tarefa"+conta+"')></input>";
+      //     col2.appendChild(botao);
+      //     tab.appendChild(linha);
+   //          var tarefa = document.getElementById('desctarefa').value;
+   //          var parte1 = "<tr><td align='left' id='tarefa" + conta + "'>" + tarefa + "</td>";
+   //          var parte2 = "<td align='center' class='concluido'><input type='button' "
+   //          var parte3 = "value='concluido' id='concluido" + conta + "' onclick='javascript:trocaCor()'>";
+      // document.getElementById('linhatarefa').innerHTML += parte1 + parte2 + parte3;
+   //          document.getElementById('linhatarefa').innerHTML += "</td></tr>";
+   //      }
+
+   //      function trocaCor(){
+   //       document.getElementById("tarefa").setAttribute("color","#b382ba");
+   //      }
+
+    // function novaTarefa() {
+    //   var li = document.createElement("li");
+    //   var tarefa = document.getElementById("desctarefa").value;
+    //   var texto = document.createTextNode(tarefa);
+    //   li.appendChild(texto);
+    //   if (tarefa === '') {
+
+    //   } else {
+    //   // document.getElementById("lista").appendChild(li);  
+    //     var lista = document.getElementById("lista");
+    //     lista.insertBefore(li,lista.childNodes[0]);
+    //   }
+    //   document.getElementById("desctarefa").value = "";
+
+  </script>
+
+</body>
+
+</html>

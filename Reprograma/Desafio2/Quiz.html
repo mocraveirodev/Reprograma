@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Quiz by {reprograma}</title>
+	<link rel="stylesheet" type="text/css" href="Style.css">
+</head>
+<body>	
+	<header>
+		<h1>Quiz by <span class="cor">{re</span>programa<span class="cor">}</span></h1>
+	</header>
+
+	<div id="perguntas" align="center">
+
+		<form name="quiz">
+
+			<div class="pergunta">
+				<h3>1. O que significa a sigla HTML?</h3>
+					<input type="radio" name="P1" value="0"><label>A. Hyperlinks and Text Markup Language</label><br>
+					<input type="radio" name="P1" value="1"><label class="certo">B. Hyper Text Markup Language</label><br>
+					<input type="radio" name="P1" value="2"><label>C. Home Tool Markup Language</label><br>
+			</div>
+
+			<div class="pergunta">
+				<h3>2. O que significa a sigla CSS?</h3>
+					<input type="radio" name="P2" value="0"><label>A. Creative Style Sheets</label><br>
+					<input type="radio" name="P2" value="1"><label class="certo">B. Cascading Style Sheets</label><br>
+					<input type="radio" name="P2" value="2"><label>C. Colorful Style Sheets</label><br>
+			</div>
+
+			<div class="pergunta">
+				<h3>3. Dentro de qual elemento HTML nós colocamos o JavaScript?</h3>
+					<input type="radio" name="P3" value="0"><label class="certo">A. script</label><br>
+					<input type="radio" name="P3" value="1"><label>B. js</label><br>
+					<input type="radio" name="P3" value="2"><label>C. javascript</label><br>
+			</div>
+
+			<div id="resp" align="center">
+				<p id="resposta"></p>
+				<input type="button" value="Confira as respostas!" onclick="confere();">
+			</div>
+
+			<!-- <fieldset>
+				<legend>Pergunta 1</legend>
+				<h3>O que significa a sigla HTML?</h3>
+				<input type="radio" name="P1" value="0"><label>A. Hyperlinks and Text Markup Language</label><br>
+				<input type="radio" name="P1" value="1"><label class="certo">B. Hyper Text Markup Language</label><br>
+				<input type="radio" name="P1" value="2"><label>C. Home Tool Markup Language</label><br>
+			</fieldset>
+			<fieldset>
+				<legend>Pergunta 2</legend>
+				<h3>O que significa a sigla CSS?</h3>
+				<input type="radio" name="P2" value="0"><label>A. Creative Style Sheets</label><br>
+				<input type="radio" name="P2" value="1"><label class="certo">B. Cascading Style Sheets</label><br>
+				<input type="radio" name="P2" value="2"><label>C. Colorful Style Sheets</label><br>
+			</fieldset>
+			<fieldset>
+				<legend>Pergunta 3</legend>
+				<h3>3. Dentro de qual elemento HTML nós colocamos o JavaScript?</h3>
+				<input type="radio" name="P3" value="0"><label class="certo">A. script</label><br>
+				<input type="radio" name="P3" value="1"><label>B. js</label><br>
+				<input type="radio" name="P3" value="2"><label>C. javascript</label><br>
+			</fieldset> -->
+
+		</form>
+
+	</div>
+	
+	<script type="text/javascript">
+		function confere() {
+			var acerto = 0;
+			var erro = 0
+			if (document.quiz.P1[1].checked) {
+				acerto = acerto + 1;				
+			}else{
+				erro = erro + 1;
+			}
+			if (document.quiz.P2[1].checked) {
+				acerto = acerto + 1;				
+			}else{
+				erro = erro + 1;
+			}
+			if (document.quiz.P3[0].checked) {
+				acerto = acerto + 1;			
+			}else{
+				erro = erro + 1;
+			}
+
+			document.getElementById('resposta').innerHTML = "Você acertou "+acerto+" perguntas e errou "+erro+"!";	
+
+			// alert(document.quiz.P1[1].label)
+			// var certo = document.getElementsByName('certo');			
+
+			// certo.setAttribute("style","border: 1px solid #b3efb1;");
+
+			// document.getElementById('resposta').classList.toggle('resp');
+		}
+		// function RespostaCerta(){
+		// 	var certo = document.querySelectorAll('certo')
+		// 	certo.classList.add('certo');	
+		// }
+	</script>
+
+</body>
+</html>
